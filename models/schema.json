@@ -1,219 +1,145 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "plan my trip demo",
+            "invocationName": "appointment manager",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",
                     "samples": []
                 },
                 {
-                    "name": "PlanMyTripIntent",
+                    "name": "PlanAppointmentDateIntent",
                     "slots": [
                         {
-                            "name": "toCity",
-                            "type": "AMAZON.US_CITY",
-                            "samples": [
-                                "i'd like to go to {toCity} ",
-                                "{toCity} ",
-                                "I'd like to visit {toCity} ",
-                                "we're going to {toCity} ",
-                                "i will leave on {travelDate} ",
-                                "I will go to {toCity}  on {travelDate} "
-                            ]
-                        },
-                        {
-                            "name": "fromCity",
-                            "type": "AMAZON.US_CITY",
-                            "samples": [
-                                "{fromCity} ",
-                                "leaving from {fromCity} ",
-                                "from {fromCity} ",
-                                "my trip starts in {fromCity} "
-                            ]
-                        },
-                        {
-                            "name": "travelDate",
+                            "name": "bookingDate",
                             "type": "AMAZON.DATE",
                             "samples": [
-                                "{travelDate} ",
-                                "my trips starts {travelDate} ",
-                                "leaving on {travelDate} "
+                                "book an appointment on {bookingDate} ",
+                                "book apointment on this date {bookingDate} "
                             ]
-                        },
-                        {
-                            "name": "activity",
-                            "type": "LIST_OF_ACTIVITIES"
                         }
                     ],
                     "samples": [
-                        "I'm going on a trip {travelDate} ",
-                        "i want to visit {toCity} ",
-                        "I want to travel from {fromCity} to {toCity} {travelDate} ",
-                        "Plan a trip",
-                        "I'll go to {toCity} on the {travelDate} ",
-                        "{toCity} "
+                        "ok {bookingDate}",
+                        "{bookingDate}",
+                        "humble fools at {bookingDate}",
+                        "book an appointment on {bookingDate} "
+                    ]
+                },
+                {
+                    "name": "AMAZON.PauseIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ResumeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "PlanAppointmentActivityIntent",
+                    "slots": [
+                        {
+                            "name": "activity",
+                            "type": "AMAZON.Color"
+                        }
+                    ],
+                    "samples": [
+                        "book for {activity}",
+                        "need to go for {activity}",
+                        "Book an appointment for {activity}"
+                    ]
+                },
+                {
+                    "name": "GetDatesIntent",
+                    "slots": [
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE"
+                        }
+                    ],
+                    "samples": [
+                        "Book on {date}"
+                    ]
+                },
+                {
+                    "name": "GetAvailableDates",
+                    "slots": [],
+                    "samples": [
+                        "Get me the available date"
+                    ]
+                },
+                {
+                    "name": "PlanAppointmentTimeIntent",
+                    "slots": [
+                        {
+                            "name": "bookingTime",
+                            "type": "AMAZON.TIME"
+                        }
+                    ],
+                    "samples": [
+                        "{bookingTime} sounds ok",
+                        "{bookingTime} sounds good",
+                        "{bookingTime} is fine by me",
+                        "set time at {bookingTime}"
+                    ]
+                },
+                {
+                    "name": "GetAvailableServices",
+                    "slots": [],
+                    "samples": [
+                        "Get me available services"
+                    ]
+                },
+                {
+                    "name": "appointmentEntryIntent",
+                    "slots": [
+                        {
+                            "name": "domainPhrase",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "book appointment at {domainPhrase}"
+                    ]
+                },
+                {
+                    "name": "chooseServiceIntent",
+                    "slots": [
+                        {
+                            "name": "serviceName",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "select {serviceName} service",
+                        "can u book an appointment for {serviceName}"
                     ]
                 }
             ],
-            "types": [
-                {
-                    "name": "LIST_OF_ACTIVITIES",
-                    "values": [
-                        {
-                            "name": {
-                                "value": "bicycling"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "bike"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "biking"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "camp"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "camping"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "hike"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "hiking"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "race"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "run"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "shop"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "shopping"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "ski"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "skiing"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "surf"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "surfing"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "swim"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "swimming"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "visit relatives"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "visit with friends"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "visit with my relatives"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "concert"
-                            }
-                        },
-                        {
-                            "name": {
-                                "value": "play"
-                            }
-                        }
-                    ]
-                }
-            ]
+            "types": []
         },
         "dialog": {
             "intents": [
                 {
-                    "name": "PlanMyTripIntent",
+                    "name": "PlanAppointmentDateIntent",
                     "confirmationRequired": false,
                     "prompts": {},
                     "slots": [
                         {
-                            "name": "toCity",
-                            "type": "AMAZON.US_CITY",
+                            "name": "bookingDate",
+                            "type": "AMAZON.DATE",
                             "confirmationRequired": false,
                             "elicitationRequired": true,
                             "prompts": {
                                 "elicitation": "Elicit.Slot.1162780729786.1432530920282"
                             }
-                        },
-                        {
-                            "name": "fromCity",
-                            "type": "AMAZON.US_CITY",
-                            "confirmationRequired": false,
-                            "elicitationRequired": true,
-                            "prompts": {
-                                "elicitation": "Elicit.Slot.1162780729786.1143025724798"
-                            }
-                        },
-                        {
-                            "name": "travelDate",
-                            "type": "AMAZON.DATE",
-                            "confirmationRequired": false,
-                            "elicitationRequired": true,
-                            "prompts": {
-                                "elicitation": "Elicit.Slot.1162780729786.801508773141"
-                            }
-                        },
-                        {
-                            "name": "activity",
-                            "type": "LIST_OF_ACTIVITIES",
-                            "confirmationRequired": false,
-                            "elicitationRequired": false,
-                            "prompts": {}
                         }
                     ]
                 }
@@ -225,37 +151,11 @@
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "which city are you going to?"
+                        "value": "what date do u want to book appointment?"
                     },
                     {
                         "type": "PlainText",
-                        "value": "Where are you going?"
-                    }
-                ]
-            },
-            {
-                "id": "Elicit.Slot.1162780729786.1143025724798",
-                "variations": [
-                    {
-                        "type": "PlainText",
-                        "value": "where are you starting your trip?"
-                    },
-                    {
-                        "type": "PlainText",
-                        "value": "What city are you leaving from?"
-                    }
-                ]
-            },
-            {
-                "id": "Elicit.Slot.1162780729786.801508773141",
-                "variations": [
-                    {
-                        "type": "PlainText",
-                        "value": "what date are you flying out?"
-                    },
-                    {
-                        "type": "PlainText",
-                        "value": "When will you start this trip?"
+                        "value": "what date?"
                     }
                 ]
             }

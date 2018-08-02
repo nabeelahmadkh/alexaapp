@@ -1,0 +1,164 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "appointment manager",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "PlanAppointmentDateIntent",
+                    "slots": [
+                        {
+                            "name": "bookingDate",
+                            "type": "AMAZON.DATE",
+                            "samples": [
+                                "book an appointment on {bookingDate} ",
+                                "book apointment on this date {bookingDate} "
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "ok {bookingDate}",
+                        "{bookingDate}",
+                        "humble fools at {bookingDate}",
+                        "book an appointment on {bookingDate} "
+                    ]
+                },
+                {
+                    "name": "AMAZON.PauseIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ResumeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "PlanAppointmentActivityIntent",
+                    "slots": [
+                        {
+                            "name": "activity",
+                            "type": "AMAZON.Color"
+                        }
+                    ],
+                    "samples": [
+                        "book for {activity}",
+                        "need to go for {activity}",
+                        "Book an appointment for {activity}"
+                    ]
+                },
+                {
+                    "name": "GetDatesIntent",
+                    "slots": [
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE"
+                        }
+                    ],
+                    "samples": [
+                        "Book on {date}"
+                    ]
+                },
+                {
+                    "name": "GetAvailableDates",
+                    "slots": [],
+                    "samples": [
+                        "Get me the available date"
+                    ]
+                },
+                {
+                    "name": "PlanAppointmentTimeIntent",
+                    "slots": [
+                        {
+                            "name": "bookingTime",
+                            "type": "AMAZON.TIME"
+                        }
+                    ],
+                    "samples": [
+                        "{bookingTime} sounds ok",
+                        "{bookingTime} sounds good",
+                        "{bookingTime} is fine by me",
+                        "set time at {bookingTime}"
+                    ]
+                },
+                {
+                    "name": "GetAvailableServices",
+                    "slots": [],
+                    "samples": [
+                        "Get me available services"
+                    ]
+                },
+                {
+                    "name": "appointmentEntryIntent",
+                    "slots": [
+                        {
+                            "name": "domainPhrase",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "book appointment at {domainPhrase}"
+                    ]
+                },
+                {
+                    "name": "chooseServiceIntent",
+                    "slots": [
+                        {
+                            "name": "serviceName",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "select {serviceName} service",
+                        "can u book an appointment for {serviceName}"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "PlanAppointmentDateIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "bookingDate",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1162780729786.1432530920282"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1162780729786.1432530920282",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "what date do u want to book appointment?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "what date?"
+                    }
+                ]
+            }
+        ]
+    }
+}
